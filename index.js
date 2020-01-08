@@ -2,12 +2,19 @@ const express = require("express");
 
 const app = express();
 
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
   res.send("Welcome to may API!");
 });
 
-app.listen(port, function() {
-  console.log("listening on port", port);
+app.get("/spinach", (req, res) => {
+  res.json({
+    name: "spinach",
+    bestFood: true
+  });
+});
+
+app.listen(PORT, function() {
+  console.log("listening on port", PORT);
 });
